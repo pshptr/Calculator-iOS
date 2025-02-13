@@ -73,7 +73,6 @@ struct ContentView: View {
         .background(Color.black.edgesIgnoringSafeArea(.all))
     }
     
-    // Добавьте эту функцию!
     private func restartCursorAnimation() {
         isCursorVisible = false
         DispatchQueue.main.async {
@@ -97,16 +96,16 @@ struct ContentView: View {
         case "+/-":
             if let value = Double(input) {
                 input = "\(-value)"
-                restartCursorAnimation() // Обновляем курсор
+                restartCursorAnimation()
             }
         case "%":
             if let value = Double(input) {
                 input = "\(value / 100)"
-                restartCursorAnimation() // Обновляем курсор
+                restartCursorAnimation()
             }
         default:
             input.append(button)
-            restartCursorAnimation() // Вызываем функцию здесь
+            restartCursorAnimation()
         }
     }
     
