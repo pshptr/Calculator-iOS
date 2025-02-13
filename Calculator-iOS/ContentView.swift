@@ -1,3 +1,10 @@
+//
+//  ContentView.swift
+//  Calculator-iOS
+//
+//  Created by Pe Tia on 12.02.25.
+//
+
 import SwiftUI
 
 struct ContentView: View {
@@ -9,7 +16,7 @@ struct ContentView: View {
         ["7", "8", "9", "×"],
         ["4", "5", "6", "-"],
         ["1", "2", "3", "+"],
-        ["0", ".", "=", ""]
+        ["0", ".", "="]
     ]
     
     var body: some View {
@@ -83,20 +90,23 @@ struct ContentView: View {
         } else if button == "C" {
             return Color.red
         } else if button == "=" {
-            return Color.green.opacity(0.7)
+            return Color.green
         } else {
             return Color.gray
         }
     }
     
     private func buttonWidth(_ button: String) -> CGFloat {
-        return button == "0" ? 160 : 80
+            let standardWidth: CGFloat = 80
+            if button == "=" {
+                return standardWidth * 2 + 10
+            }
+            return standardWidth
+        }
     }
-}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
