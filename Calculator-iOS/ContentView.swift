@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var input: String = ""
     @State private var result: String = ""
     @State private var isCursorVisible = false
-    
+
     let buttons: [[String]] = [
         ["C", "+/-", "%", "÷"],
         ["7", "8", "9", "×"],
@@ -70,9 +70,9 @@ struct ContentView: View {
                 }
             }
         }
-        .background(Color.black.edgesIgnoringSafeArea(.all))
+        .background(Color(white: 0.1).edgesIgnoringSafeArea(.all))
     }
-    
+
     private func restartCursorAnimation() {
         isCursorVisible = false
         DispatchQueue.main.async {
@@ -83,6 +83,7 @@ struct ContentView: View {
     }
     
     private func buttonTapped(_ button: String) {
+        
         switch button {
         case "C":
             input = ""
@@ -99,10 +100,9 @@ struct ContentView: View {
                 restartCursorAnimation()
             }
         case "%":
-            if let value = Double(input) {
-                input = "\(value / 100)"
-                restartCursorAnimation()
-            }
+            if input.isEmpty { return }
+            input.append("%")
+            restartCursorAnimation()
         default:
             input.append(button)
             restartCursorAnimation()
@@ -110,7 +110,37 @@ struct ContentView: View {
     }
     
     private func calculateResult() {
-        let expression = NSExpression(format: input.replacingOccurrences(of: "×", with: "*").replacingOccurrences(of: "÷", with: "/"))
+        var processedInput = input
+        
+        let operators = CharacterSet(charactersIn: "+-×÷")
+        let components = processedInput.components(separatedBy: operators)
+        _ = processedInput.indices.filter { 
+            if let scalar = String(processedInput[$0]).unicodeScalars.first {
+                return operators.contains(scalar)
+            }
+            return false
+        }
+        
+        for (index, component) in components.enumerated().reversed() {
+            if component.hasSuffix("%") {
+                let numberStr = String(component.dropLast())
+                if let number = Double(numberStr) {
+                    let percentage = number / 100
+                    
+                    if index == 0 {
+                        processedInput = processedInput.replacingOccurrences(of: component, with: String(percentage))
+                    } else {
+                        let previousComponent = components[index - 1]
+                        if let baseNumber = Double(previousComponent) {
+                            let result = baseNumber * percentage
+                            processedInput = processedInput.replacingOccurrences(of: component, with: String(result))
+                        }
+                    }
+                }
+            }
+        }
+        
+        let expression = NSExpression(format: processedInput.replacingOccurrences(of: "×", with: "*").replacingOccurrences(of: "÷", with: "/"))
         if let resultValue = expression.expressionValue(with: nil, context: nil) as? Double {
             result = "\(resultValue)"
         }
@@ -143,7 +173,13 @@ struct ContentView: View {
     }
     
     private func buttonWidth(_ button: String) -> CGFloat {
-        return button == "=" ? 160 : 80
+        if button == "0" {
+            return 90
+        } else if button == "=" {
+            return 180
+        } else {
+            return 90
+        }
     }
 }
 
