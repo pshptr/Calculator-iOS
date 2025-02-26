@@ -3,16 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 63;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		C77D9FE42D6F461F0033D171 /* CalculatorViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77D9FDD2D6F461F0033D171 /* CalculatorViewViewModel.swift */; };
+		C77D9FE52D6F461F0033D171 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77D9FDF2D6F461F0033D171 /* CalculatorView.swift */; };
+		C77D9FE62D6F461F0033D171 /* Calculator_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77D9FE22D6F461F0033D171 /* Calculator_iOSApp.swift */; };
+		C77D9FE72D6F461F0033D171 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77D9FDB2D6F461F0033D171 /* Preview Assets.xcassets */; };
+		C77D9FE82D6F461F0033D171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77D9FE12D6F461F0033D171 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C76DDA102D5CA1F200BDE201 /* Calculator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77D9FDB2D6F461F0033D171 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C77D9FDD2D6F461F0033D171 /* CalculatorViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewViewModel.swift; sourceTree = "<group>"; };
+		C77D9FDF2D6F461F0033D171 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		C77D9FE12D6F461F0033D171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C77D9FE22D6F461F0033D171 /* Calculator_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator_iOSApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		C76DDA122D5CA1F200BDE201 /* Calculator-iOS */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Calculator-iOS"; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C76DDA0D2D5CA1F200BDE201 /* Frameworks */ = {
@@ -28,7 +37,7 @@
 		C76DDA072D5CA1F200BDE201 = {
 			isa = PBXGroup;
 			children = (
-				C76DDA122D5CA1F200BDE201 /* Calculator-iOS */,
+				C77D9FE32D6F461F0033D171 /* Calculator-iOS */,
 				C76DDA112D5CA1F200BDE201 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +48,42 @@
 				C76DDA102D5CA1F200BDE201 /* Calculator-iOS.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C77D9FDC2D6F461F0033D171 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C77D9FDB2D6F461F0033D171 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C77D9FDE2D6F461F0033D171 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C77D9FDD2D6F461F0033D171 /* CalculatorViewViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C77D9FE02D6F461F0033D171 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C77D9FDF2D6F461F0033D171 /* CalculatorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C77D9FE32D6F461F0033D171 /* Calculator-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C77D9FDC2D6F461F0033D171 /* Preview Content */,
+				C77D9FDE2D6F461F0033D171 /* ViewModels */,
+				C77D9FE02D6F461F0033D171 /* Views */,
+				C77D9FE12D6F461F0033D171 /* Assets.xcassets */,
+				C77D9FE22D6F461F0033D171 /* Calculator_iOSApp.swift */,
+			);
+			path = "Calculator-iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,9 +100,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				C76DDA122D5CA1F200BDE201 /* Calculator-iOS */,
 			);
 			name = "Calculator-iOS";
 			packageProductDependencies = (
@@ -82,7 +124,7 @@
 				};
 			};
 			buildConfigurationList = C76DDA0B2D5CA1F200BDE201 /* Build configuration list for PBXProject "Calculator-iOS" */;
-			compatibilityVersion = "Xcode 15.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -105,6 +147,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C77D9FE72D6F461F0033D171 /* Preview Assets.xcassets in Resources */,
+				C77D9FE82D6F461F0033D171 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C77D9FE42D6F461F0033D171 /* CalculatorViewViewModel.swift in Sources */,
+				C77D9FE52D6F461F0033D171 /* CalculatorView.swift in Sources */,
+				C77D9FE62D6F461F0033D171 /* Calculator_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
